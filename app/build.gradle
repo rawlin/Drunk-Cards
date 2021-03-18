@@ -62,5 +62,7 @@ dependencies {
     implementation 'com.balysv:material-ripple:1.0.2'
     implementation 'com.mindorks.android:placeholderview:1.0.3'
     kapt 'com.mindorks.android:placeholderview-compiler:1.0.3'
+//    todo remove this stack view
     implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
