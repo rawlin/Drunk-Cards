@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/cardStackFragment">
+    app:startDestination="@id/gameRoomFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
         android:name="com.example.drunkcards.CardStackFragment"
         android:label="fragment_card_stack"
         tools:layout="@layout/fragment_card_stack" />
+    <fragment
+        tools:layout="@layout/fragment_game_room"
+        android:id="@+id/gameRoomFragment"
+        android:name="com.example.drunkcards.GameRoomFragment"
+        android:label="GameRoomFragment" />
 </navigation>
