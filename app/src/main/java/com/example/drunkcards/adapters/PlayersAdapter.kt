@@ -41,13 +41,7 @@ class PlayersAdapter :RecyclerView.Adapter<PlayersAdapter.PlayerViewHolder>() {
                 .load(player.imageUrl)
                 .centerCrop()
                 .into(binding.ivPlayer)
-           /* val paint=Paint()
-            paint.color= Color.BLACK
-            val bitmap =
-                Bitmap.createBitmap(binding.ivPlayer.width, binding.ivPlayer.height, Bitmap.Config.ARGB_8888)
-            val canvas = Canvas(bitmap)
-            canvas.drawText(player.name.get(0)+"", binding.ivPlayer.width.toFloat()/2, binding.ivPlayer.height.toFloat()/2, paint)
-            binding.ivPlayer.setImageBitmap(bitmap)*/
+
 
         }
     }
