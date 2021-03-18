@@ -9,15 +9,16 @@
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/swipeFlingAdapterView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:max_visible="4"
+        app:max_visible="6"
         app:min_adapter_stack="6"
-        app:rotation_degrees="16" />
+        app:rotation_degrees="16"
+        tools:listitem="@layout/card_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
