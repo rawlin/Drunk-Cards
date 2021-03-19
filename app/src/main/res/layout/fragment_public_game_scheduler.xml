@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/white"
+            android:elevation="10dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <!--todo would be done at backend and things would be shown-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Schedule Rounds"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large_text_size" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tv_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:text="Participants"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_players"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_margin"
+            android:layout_marginTop="@dimen/very_small_margin"
+            android:layout_marginRight="@dimen/large_margin"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_member"
+            app:spanCount="3"
+            tools:itemCount="5"
+            tools:listitem="@layout/rv_item_player" />
+
+        <TextView
+            android:id="@+id/tv_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:text="Matches Schedule"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintLeft_toLeftOf="@id/rv_players"
+            app:layout_constraintTop_toBottomOf="@id/rv_players" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_matches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintLeft_toLeftOf="@id/tv_schedule"
+            app:layout_constraintRight_toRightOf="@id/rv_players"
+            app:layout_constraintTop_toBottomOf="@id/tv_schedule"
+            tools:itemCount="2"
+            tools:listitem="@layout/rv_item_match" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="Start game"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_matches"
+            app:layout_constraintVertical_bias="0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

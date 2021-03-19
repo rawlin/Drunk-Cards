@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/turnEndFragment">
+    app:startDestination="@id/publicGameParticipantsFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
@@ -48,4 +48,27 @@
         android:id="@+id/gameResultFragment"
         android:name="com.example.drunkcards.GameResultFragment"
         android:label="GameResultFragment" />
+    <fragment
+        tools:layout="@layout/fragment_public_game_scheduler"
+        android:id="@+id/publicGameSchedulerFragment"
+        android:name="com.example.drunkcards.PublicGameSchedulerFragment"
+        android:label="PublicGameSchedulerFragment" />
+    <fragment
+        tools:layout="@layout/fragment_public_game_grader"
+        android:id="@+id/publicGameGraderFragment"
+        android:name="com.example.drunkcards.PublicGameGraderFragment"
+        android:label="PublicGameParticipantFragment" />
+    <fragment
+        tools:layout="@layout/fragment_public_game_participant"
+        android:id="@+id/publicGameParticipantsFragment"
+        android:name="com.example.drunkcards.PublicGameParticipantsFragment"
+        android:label="PublicGameParticipantsFragment" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            android:id="@+id/action_publicGameParticipantsFragment_to_publicGameGraderFragment"
+            app:destination="@id/publicGameGraderFragment" />
+    </fragment>
 </navigation>
