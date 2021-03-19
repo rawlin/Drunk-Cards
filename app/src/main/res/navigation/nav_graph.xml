@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/gameRoomFragment">
+    app:startDestination="@id/startScreenFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
@@ -29,8 +29,8 @@
         android:name="com.example.drunkcards.TurnEndFragment"
         android:label="TurnEndFragment" >
         <action
-            android:id="@+id/action_turnEndFragment_to_gameResultFragment"
-            app:destination="@id/gameResultFragment" />
+            android:id="@+id/action_turnEndFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
     </fragment>
     <fragment
         android:id="@+id/gamePlayFragment"
@@ -48,4 +48,18 @@
         android:id="@+id/gameResultFragment"
         android:name="com.example.drunkcards.GameResultFragment"
         android:label="GameResultFragment" />
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="com.example.drunkcards.StartScreenFragment"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/action_startScreenFragment_to_gameRoomFragment"
+            app:destination="@id/gameRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.example.drunkcards.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" />
 </navigation>
