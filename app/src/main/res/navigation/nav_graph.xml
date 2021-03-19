@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/publicGameParticipantsFragment">
+    app:startDestination="@id/startScreenFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
@@ -22,12 +22,18 @@
         <action
             android:id="@+id/action_gameRoomFragment_to_cardStackFragment"
             app:destination="@id/cardStackFragment" />
+        <action
+            android:id="@+id/action_gameRoomFragment_to_publicGameSchedulerFragment"
+            app:destination="@id/publicGameSchedulerFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_turn_end"
         android:id="@+id/turnEndFragment"
         android:name="com.example.drunkcards.TurnEndFragment"
         android:label="TurnEndFragment" >
+        <action
+            android:id="@+id/action_turnEndFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
         <action
             android:id="@+id/action_turnEndFragment_to_gameResultFragment"
             app:destination="@id/gameResultFragment" />
@@ -52,7 +58,11 @@
         tools:layout="@layout/fragment_public_game_scheduler"
         android:id="@+id/publicGameSchedulerFragment"
         android:name="com.example.drunkcards.PublicGameSchedulerFragment"
-        android:label="PublicGameSchedulerFragment" />
+        android:label="PublicGameSchedulerFragment" >
+        <action
+            android:id="@+id/action_publicGameSchedulerFragment_to_publicGameParticipantsFragment"
+            app:destination="@id/publicGameParticipantsFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_public_game_grader"
         android:id="@+id/publicGameGraderFragment"
@@ -71,4 +81,19 @@
             android:id="@+id/action_publicGameParticipantsFragment_to_publicGameGraderFragment"
             app:destination="@id/publicGameGraderFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="com.example.drunkcards.StartScreenFragment"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/action_startScreenFragment_to_gameRoomFragment"
+            app:destination="@id/gameRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.example.drunkcards.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" />
 </navigation>

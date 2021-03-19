@@ -8,10 +8,10 @@ import com.example.drunkcards.databinding.RvItemCommentBinding
 import com.example.drunkcards.models.TaskComment
 
 
-class CommentsAdapter :RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>() {
-    private var taskComments= mutableListOf<TaskComment>()
+class CommentsAdapter : RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>() {
+    private var taskComments = mutableListOf<TaskComment>()
 
-    fun addDataToAdapter(commentsList :List<TaskComment>){
+    fun addDataToAdapter(commentsList: List<TaskComment>) {
         taskComments.addAll(commentsList)
         notifyDataSetChanged()
     }
@@ -20,8 +20,8 @@ class CommentsAdapter :RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>(
         parent: ViewGroup,
         viewType: Int
     ): CommentsAdapter.CommentsViewHolder {
-        val layoutInflater= LayoutInflater.from(parent.context)
-        return CommentsViewHolder(RvItemCommentBinding.inflate(layoutInflater,parent,false))
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return CommentsViewHolder(RvItemCommentBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -33,10 +33,12 @@ class CommentsAdapter :RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>(
     }
 
 
-    inner class CommentsViewHolder(val binding:RvItemCommentBinding):RecyclerView.ViewHolder(binding.root){
-        fun bindData(comment:TaskComment){
-            binding.tvUserNameAndComment.text=Html.fromHtml("<br>"+comment.commentedBy+"</br> "+comment.commentText)
-            binding.tvPostDate.text=comment.commentedDate
+    inner class CommentsViewHolder(val binding: RvItemCommentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindData(comment: TaskComment) {
+            binding.tvUserNameAndComment.text =
+                Html.fromHtml("<br>" + comment.commentedBy + "</br> " + comment.commentText)
+            binding.tvPostDate.text = comment.commentedDate
         }
     }
 }
