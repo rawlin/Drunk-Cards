@@ -7,7 +7,7 @@
     android:layout_width="350dp"
     android:layout_height="425dp"
     android:layout_margin="10dp"
-    android:background="@color/white"
+    app:cardBackgroundColor="@color/black"
     android:orientation="vertical"
     app:cardCornerRadius="7dp"
     app:cardElevation="4dp">
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/very_small_margin"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold"
             tools:text="Go Home boy" />
@@ -41,6 +41,7 @@
             tools:text="1 Minutes" />
 
         <TextView
+            android:textColor="@color/white"
             android:padding="@dimen/small_margin"
             android:minHeight="380dp"
             android:id="@+id/tv_task_description"
@@ -48,7 +49,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/large_margin"
             android:layout_weight="1"
-            android:gravity="center|start"
+            android:gravity="center"
             android:textSize="@dimen/small_text_size"
             tools:text="@string/lorem_long" />
     </LinearLayout>

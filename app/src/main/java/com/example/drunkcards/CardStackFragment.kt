@@ -44,7 +44,9 @@ class CardStackFragment : Fragment(R.layout.fragment_card_stack),TinderCard.Call
         val allTasks=MockData.getFakeTasks(60)
         // taking only one card out
         taskForThisUser=allTasks.subList(0,1)[0]
-        cardSwipeView.addView(TinderCard(requireContext(),taskForThisUser,cardSwipeView,this))
+        cardSwipeView.addView(TinderCard(requireContext(),DareTask("t-1","Drink, Dumb and Broke",
+            "Drunk card is a Daring game, and you would have to complete the tasks within given time constraint, and since its a peer game and rank you given relative to all others people"
+            ,-1),cardSwipeView,this))
 
         /*for(task:DareTask in allTasks){
             cardSwipeView.addView(TinderCard(requireContext(),task,cardSwipeView))

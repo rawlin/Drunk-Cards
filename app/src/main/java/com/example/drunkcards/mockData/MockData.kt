@@ -1,9 +1,6 @@
 package com.example.drunkcards.mockData
 
-import com.example.drunkcards.models.DareTask
-import com.example.drunkcards.models.Players
-import com.example.drunkcards.models.TaskComment
-import com.example.drunkcards.models.TaskReportCard
+import com.example.drunkcards.models.*
 
 class MockData{
     companion object{
@@ -38,6 +35,15 @@ class MockData{
                     "Ajay",
                     3.5f,
                     "Take an embarrassing selfie and post it as your profile picture."
+            )
+        }
+
+        fun getResultAfterAMatch():List<MatchResultForAPlayer>{
+            return listOf(
+                MatchResultForAPlayer("u-1","m-1","Aron",56),
+                MatchResultForAPlayer("u-2","m-1","Aman",23),
+                MatchResultForAPlayer("u-3","m-1","Aarush",90),
+                MatchResultForAPlayer("u-4","m-1","Amit Dubey",74)
             )
         }
     }

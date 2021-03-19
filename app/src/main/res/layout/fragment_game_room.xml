@@ -40,8 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-<!--    todo we can have a detail section-->
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_invite"
         app:layout_constraintLeft_toLeftOf="parent"

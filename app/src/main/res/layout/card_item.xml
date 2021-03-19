@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:orientation="vertical"
-        android:background="@color/white"
+        app:cardBackgroundColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
@@ -21,16 +21,28 @@
             android:orientation="vertical"
             android:layout_gravity="bottom">
             <TextView
-                android:gravity="center"
+                android:gravity="center|top"
                 android:layout_marginTop="@dimen/very_small_margin"
                 tools:text="Go Home boy"
                 android:id="@+id/tv_task_head"
                 android:layout_width="match_parent"
-                android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/very_large_text_size"
                 android:textStyle="bold"
-                android:layout_height="wrap_content"/>
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
             <TextView
+                android:textColor="@color/white"
+                android:padding="@dimen/small_margin"
+                android:gravity="center|top"
+                android:layout_marginTop="@dimen/large_margin"
+                android:textSize="@dimen/small_text_size"
+                tools:text="@string/lorem_long"
+                android:id="@+id/tv_task_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="invisible"
                 android:gravity="center"
                 android:textStyle="bold"
                 tools:text="1 Minutes"
@@ -40,16 +52,6 @@
                 android:textColor="@color/grey"
                 android:textSize="@dimen/small_text_size"
                 />
-            <TextView
-                android:padding="@dimen/small_margin"
-                android:gravity="center|start"
-                android:layout_marginTop="@dimen/large_margin"
-                android:textSize="@dimen/small_text_size"
-                tools:text="@string/lorem_long"
-                android:id="@+id/tv_task_description"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
