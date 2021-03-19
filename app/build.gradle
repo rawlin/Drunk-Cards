@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
+//apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -59,6 +61,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.balysv:material-ripple:1.0.2'
 
+
     //CameraX
     // CameraX core library
     def camerax_version = '1.0.0-alpha22'
@@ -75,4 +78,11 @@ dependencies {
 
     // CameraX Extensions library
     implementation 'androidx.camera:camera-extensions:1.0.0-alpha22'
+
+    implementation 'com.mindorks.android:placeholderview:1.0.3'
+    kapt 'com.mindorks.android:placeholderview-compiler:1.0.3'
+//    todo remove this stack view
+    implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }
