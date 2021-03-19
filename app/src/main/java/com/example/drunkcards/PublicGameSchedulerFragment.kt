@@ -3,6 +3,7 @@ package com.example.drunkcards
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.drunkcards.adapters.MatchesAdapter
 import com.example.drunkcards.adapters.PlayersAdapter
 import com.example.drunkcards.databinding.FragmentPublicGameSchedulerBinding
@@ -33,6 +34,7 @@ class PublicGameSchedulerFragment:Fragment(R.layout.fragment_public_game_schedul
 
         binding.btnStart.setOnClickListener{
             //todo only admin can start the game
+            findNavController().navigate(R.id.action_publicGameSchedulerFragment_to_publicGameParticipantsFragment)
         }
     }
 

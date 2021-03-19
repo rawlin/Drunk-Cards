@@ -19,6 +19,7 @@ class PublicGameGraderFragment:Fragment(R.layout.fragment_public_game_grader) {
     private var currentQuestionIndex=-1
     private lateinit var currentQuestion:CardsOFHumanity
     private lateinit var optionsAdapter:HumanityCardsAdapter
+    private lateinit var timer: CountDownTimer
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +32,7 @@ class PublicGameGraderFragment:Fragment(R.layout.fragment_public_game_grader) {
     }
 
     private fun startTimer() {
-        val timer = object: CountDownTimer(10000, 1000) {
+        timer = object: CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.tvTimer.text= "${millisUntilFinished/1000} Seconds"
             }
@@ -54,5 +55,10 @@ class PublicGameGraderFragment:Fragment(R.layout.fragment_public_game_grader) {
         binding.tvTaskHead.text="Question "+(currentQuestionIndex+1)
         binding.tvTaskDescription.text=currentQuestion.question
         optionsAdapter.addDataToAdapter(currentQuestion.options)
+    }
+
+    override fun onDestroyView() {
+        timer.cancel()
+        super.onDestroyView()
     }
 }

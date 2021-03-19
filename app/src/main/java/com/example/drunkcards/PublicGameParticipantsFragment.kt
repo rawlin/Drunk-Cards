@@ -18,6 +18,7 @@ class PublicGameParticipantsFragment:Fragment(R.layout.fragment_public_game_part
     private lateinit var currentQuestion: CardsOFHumanity
     private lateinit var optionsAdapter: HumanityCardsAdapter
     private var currentTimeCountDown=0
+    private lateinit var timer:CountDownTimer
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,9 +29,9 @@ class PublicGameParticipantsFragment:Fragment(R.layout.fragment_public_game_part
     }
 
     private fun setDataInUI() {
+        currentQuestionIndex++
         if(currentQuestionIndex==allQuestions.size)
             return
-        currentQuestionIndex++
         currentQuestion=allQuestions[currentQuestionIndex]
         optionsAdapter= HumanityCardsAdapter{
             currentQuestion.userSelectedOption=it
@@ -41,7 +42,7 @@ class PublicGameParticipantsFragment:Fragment(R.layout.fragment_public_game_part
     }
 
     private fun startTimer() {
-        val timer = object: CountDownTimer(10000, 1000) {
+        timer = object: CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.tvTimer.text= "${millisUntilFinished/1000} Seconds"
             }
@@ -53,4 +54,9 @@ class PublicGameParticipantsFragment:Fragment(R.layout.fragment_public_game_part
         timer.start()
     }
 
+
+    override fun onDestroyView() {
+        timer.cancel()
+        super.onDestroyView()
+    }
 }

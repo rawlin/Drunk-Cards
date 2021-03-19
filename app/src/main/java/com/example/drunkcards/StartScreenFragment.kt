@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.drunkcards.databinding.FragmentStartScreenBinding
 import com.example.drunkcards.utils.Constants
-import com.example.drunkcards.utils.Constants.PRIVATE_ROOM
-import com.example.drunkcards.utils.Constants.PUBLIC_ROOM
 
 
 class StartScreenFragment : Fragment(R.layout.fragment_start_screen) {
@@ -22,7 +20,7 @@ class StartScreenFragment : Fragment(R.layout.fragment_start_screen) {
         binding.apply {
             privateRoomButton.setOnClickListener {
                 val bundle = Bundle().apply {
-                    putString(PRIVATE_ROOM, PRIVATE_ROOM)
+                    putString(Constants.PUBLIC_PRIVATE_ROOM, "private")
                 }
                 findNavController().navigate(
                     R.id.action_startScreenFragment_to_gameRoomFragment,
@@ -32,7 +30,7 @@ class StartScreenFragment : Fragment(R.layout.fragment_start_screen) {
 
             publicRoomButton.setOnClickListener {
                 val bundle = Bundle().apply {
-                    putString(PUBLIC_ROOM, PUBLIC_ROOM)
+                    putString(Constants.PUBLIC_PRIVATE_ROOM, "public")
                 }
                 findNavController().navigate(
                     R.id.action_startScreenFragment_to_gameRoomFragment,

@@ -27,6 +27,17 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/tv_dumb"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text_size"
+        tools:text="Create Room"
+        android:layout_marginTop="@dimen/large_margin"
+        app:layout_constraintStart_toStartOf="@id/rv_players"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginRight="@dimen/large_margin"
         android:layout_marginLeft="@dimen/large_margin"
@@ -35,7 +46,7 @@
         app:spanCount="3"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/rv_item_player"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/tv_dumb"
         android:id="@+id/rv_players"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
