@@ -43,7 +43,10 @@ class TinderCard(private val context: Context,
     @Resolve
     fun onResolved() {
         tv_task_description.text=todoTask.description
-        tv_time_remaining.text=todoTask.timeRemaining.toString()+" Seconds Remaining"
+        if(todoTask.timeRemaining==-1){
+            tv_time_remaining.text=""
+        }else
+            tv_time_remaining.text=todoTask.timeRemaining.toString()+" Seconds Remaining"
         tv_task_title.text=todoTask.title
     }
 

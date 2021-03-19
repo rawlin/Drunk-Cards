@@ -3,26 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/gamePlayFragment">
+    app:startDestination="@id/gameRoomFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
         android:name="com.example.drunkcards.CardStackFragment"
         android:label="fragment_card_stack"
-        tools:layout="@layout/fragment_card_stack" />
+        tools:layout="@layout/fragment_card_stack" >
+        <action
+            android:id="@+id/action_cardStackFragment_to_gamePlayFragment"
+            app:destination="@id/gamePlayFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_game_room"
         android:id="@+id/gameRoomFragment"
         android:name="com.example.drunkcards.GameRoomFragment"
-        android:label="GameRoomFragment" />
+        android:label="GameRoomFragment" >
+        <action
+            android:id="@+id/action_gameRoomFragment_to_cardStackFragment"
+            app:destination="@id/cardStackFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_turn_end"
         android:id="@+id/turnEndFragment"
         android:name="com.example.drunkcards.TurnEndFragment"
-        android:label="TurnEndFragment" />
+        android:label="TurnEndFragment" >
+        <action
+            android:id="@+id/action_turnEndFragment_to_gameResultFragment"
+            app:destination="@id/gameResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gamePlayFragment"
         android:name="com.example.drunkcards.GamePlayFragment"
         android:label="fragment_game_play"
-        tools:layout="@layout/fragment_game_play" />
+        tools:layout="@layout/fragment_game_play"
+        >
+        <action
+            android:id="@+id/action_gamePlayFragment_to_turnEndFragment"
+            app:destination="@id/turnEndFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_game_result"
+        android:id="@+id/gameResultFragment"
+        android:name="com.example.drunkcards.GameResultFragment"
+        android:label="GameResultFragment" />
 </navigation>
