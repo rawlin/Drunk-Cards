@@ -1,7 +1,9 @@
 package com.example.drunkcards.adapters
 
+import android.annotation.SuppressLint
 import android.text.Html
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,7 +12,7 @@ import com.example.drunkcards.databinding.RvItemPlayerScoreBinding
 import com.example.drunkcards.models.MatchResultForAPlayer
 
 // todo use diff utils
-class GameResultsAdapter :RecyclerView.Adapter<GameResultsAdapter.GameResultViewHolder>() {
+class GameResultsAdapter(val hideTurnsCount:Boolean=true) :RecyclerView.Adapter<GameResultsAdapter.GameResultViewHolder>() {
     private var playersList= mutableListOf<MatchResultForAPlayer>()
 
     fun addDataToAdapter(commentsList :List<MatchResultForAPlayer>){
@@ -35,13 +37,19 @@ class GameResultsAdapter :RecyclerView.Adapter<GameResultsAdapter.GameResultView
     }
 
     inner class GameResultViewHolder(val binding:RvItemPlayerScoreBinding):RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
         fun bindData(playerResult:MatchResultForAPlayer){
             //todo create avatars for users with their initials
             Glide.with(binding.ivPlayerAvatar)
                 .load(R.drawable.ic_launcher_background)
                 .into(binding.ivPlayerAvatar)
             binding.tvPlayerName.text=playerResult.username
-            binding.tvPlayerPoints.text=playerResult.userPoints.toString()
+            binding.tvPlayerPoints.text=playerResult.userPoints.toString()+" Points"
+            binding.tvTurnsPlayed.text=playerResult.matchesPlayed.toString()+" Turns"
+            if(hideTurnsCount)
+                binding.tvTurnsPlayed.visibility= View.GONE
+            else
+                binding.tvTurnsPlayed.visibility= View.VISIBLE
         }
     }
 }

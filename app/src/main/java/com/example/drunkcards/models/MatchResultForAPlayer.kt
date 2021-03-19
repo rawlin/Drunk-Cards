@@ -8,5 +8,6 @@ data class MatchResultForAPlayer (
     val matchId:String,
     val username:String,
     val userPoints:Int,
-    val userRewards:Int=0
+    val userRewards:Int=0,
+    val matchesPlayed:Int=0
 )
