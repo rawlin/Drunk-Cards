@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/turnEndFragment">
+    app:startDestination="@id/gamePlayFragment">
 
     <fragment
         android:id="@+id/cardStackFragment"
@@ -20,4 +20,9 @@
         android:id="@+id/turnEndFragment"
         android:name="com.example.drunkcards.TurnEndFragment"
         android:label="TurnEndFragment" />
+    <fragment
+        android:id="@+id/gamePlayFragment"
+        android:name="com.example.drunkcards.GamePlayFragment"
+        android:label="fragment_game_play"
+        tools:layout="@layout/fragment_game_play" />
 </navigation>

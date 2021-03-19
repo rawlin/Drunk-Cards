@@ -5,16 +5,31 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GamePlayFragment" >
+    tools:context=".GamePlayFragment">
+
+    <FrameLayout
+        android:id="@+id/camera_framgent_container"
+        android:layout_width="169dp"
+        android:layout_height="251dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_et_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rounded_et_bg"
         android:ems="10"
         android:hint="Enter your message"
         android:inputType="textPersonName"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent" />
@@ -28,14 +43,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <FrameLayout
-        android:layout_width="198dp"
-        android:layout_height="302dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="10dp"
+        android:maxHeight="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/card_container"
+        layout="@layout/card_item"
+        android:layout_width="169dp"
+        android:layout_height="251dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+    </include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
