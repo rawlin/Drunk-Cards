@@ -10,9 +10,11 @@ import com.example.drunkcards.databinding.RvItemCardOptionBinding
 
 class HumanityCardsAdapter(val optionClickedCallback: (option:Int)-> Unit) :RecyclerView.Adapter<HumanityCardsAdapter.OptionsViewHolder>() {
     private var allMatches= mutableListOf<String>()
+    private lateinit var isSelected:IntArray
 
     fun addDataToAdapter(matchesList :List<String>){
         allMatches.addAll(matchesList)
+        isSelected= IntArray(matchesList.size){i->0}
         notifyDataSetChanged()
     }
 
@@ -37,8 +39,14 @@ class HumanityCardsAdapter(val optionClickedCallback: (option:Int)-> Unit) :Recy
             binding.tvOption.text=option
 
             binding.root.setOnClickListener {
-                //todo add yellow border when selected and add data to the model
+                for(eachy in isSelected){
+                    if(eachy==1)
+                        return@setOnClickListener
+                }
+                isSelected[position]=1
                 binding.cardView.setBackgroundResource(R.drawable.selected_card_bg)
+                binding.tvOption.setTextColor(R.color.black)
+                //todo add yellow border when selected and add data to the model
                 optionClickedCallback(adapterPosition)
             }
         }

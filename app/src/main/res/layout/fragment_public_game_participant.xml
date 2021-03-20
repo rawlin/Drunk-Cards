@@ -51,6 +51,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <androidx.cardview.widget.CardView
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_timer"
+        android:id="@+id/question_card"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/black"
+        android:orientation="vertical"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_task_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/very_small_margin"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                tools:text="Go Home boy" />
+
+            <TextView
+                android:id="@+id/tv_time_remaining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="1 Minutes" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:padding="@dimen/small_margin"
+                android:id="@+id/tv_task_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/small_text_size"
+                tools:text="@string/lorem_short" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         app:spanCount="2"
         android:id="@+id/rv_options"
@@ -63,7 +119,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="@dimen/large_margin"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_timer"
+        app:layout_constraintTop_toBottomOf="@id/question_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 
