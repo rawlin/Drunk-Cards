@@ -64,6 +64,7 @@ class GameRoomFragment :Fragment(){
             Timber.d("room create response $it")
             roomId=1
             //todo empty rv and show room name
+            binding.tvDumb.text="Room : "+it["room"]
         }
     }
 }
