@@ -22,7 +22,7 @@ class DrunkApp:Application() {
             val options=IO.Options()
             options.port=3000
             //socketConnection=IO.socket("https://caca6d017a8b.ngrok.io",options).connect() // connection with ngrock
-            socketConnection=IO.socket("http://192.168.1.28:3000").connect()  //connection to mobile with localhost
+            socketConnection=IO.socket("http://192.168.43.220:3000").connect()  //connection to mobile with localhost
         }catch (e: Exception){
             e.printStackTrace()
             Timber.d("Error in socket connection")

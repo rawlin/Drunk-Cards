@@ -10,12 +10,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.drunkcards.adapters.PlayersAdapter
 import com.example.drunkcards.databinding.FragmentGameRoomBinding
 import com.example.drunkcards.mockData.MockData
+import com.example.drunkcards.sockets.DrunkGameSocketHelper
 import com.example.drunkcards.utils.Constants
+import timber.log.Timber
 
 class GameRoomFragment :Fragment(){
     lateinit var binding:FragmentGameRoomBinding
     lateinit var playersAdapter: PlayersAdapter
     lateinit var gameType:String
+    var roomId=-1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,13 +43,27 @@ class GameRoomFragment :Fragment(){
         binding.apply {
             rvPlayers.adapter = playersAdapter
 
-            btnStart.setOnClickListener {
-                if(gameType=="private")
-                    findNavController().navigate(R.id.action_gameRoomFragment_to_cardStackFragment)
-                else
-                    findNavController().navigate(R.id.action_gameRoomFragment_to_publicGameSchedulerFragment)
+            btnCreateRoom.setOnClickListener {
+                if(roomId==-1){
+                    //create a room
+                    DrunkGameSocketHelper.createARoom((activity as MainActivity).socketConnection,"Greedy game room")
+                }else{
+                    if(gameType=="private")
+                        findNavController().navigate(R.id.action_gameRoomFragment_to_cardStackFragment)
+                    else
+                        findNavController().navigate(R.id.action_gameRoomFragment_to_publicGameSchedulerFragment)
+                }
             }
-        }
 
+        }
+        setUpEventListener()
+    }
+
+    private fun setUpEventListener() {
+        DrunkGameSocketHelper.roomCreateEvent((activity as MainActivity).socketConnection){
+            Timber.d("room create response $it")
+            roomId=1
+            //todo empty rv and show room name
+        }
     }
 }
