@@ -39,6 +39,5 @@ class StartScreenFragment : Fragment(R.layout.fragment_start_screen) {
             }
         }
 
-
     }
 }
