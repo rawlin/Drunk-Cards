@@ -38,6 +38,10 @@ class PublicGameParticipantsFragment:Fragment(R.layout.fragment_public_game_part
         }
         startTimer()
         binding.rvOptions.adapter=optionsAdapter
+
+        binding.tvTaskHead.text="Question "+(currentQuestionIndex+1)
+        binding.tvTaskDescription.text=currentQuestion.question
+
         optionsAdapter.addDataToAdapter(currentQuestion.options)
     }
 
